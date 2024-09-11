@@ -4,6 +4,7 @@ import Cities from './Pages/Cities'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import StandardLayout from './Layouts/StandardLayout'
+import Signin from './Pages/Signin'
 
 
 const router = createBrowserRouter([
@@ -14,6 +15,7 @@ const router = createBrowserRouter([
         { path: "/", element: <Home></Home> },
         { path: "/Home", element: <Home></Home> },
         { path: "/Cities", element: <Cities></Cities> },
+        { path: "/Signin", element: <Signin></Signin> },
       ]
   },
   { path: "/*", element: <NotFound></NotFound> },
