@@ -1,16 +1,18 @@
 import './App.css'
 import Carousel from "./components/Carousel"
 import Footer from './components/Footer'
-import Navbar from './components/Navbar'
+import Footer2 from './components/Footer2'
+
+import Header from './components/Header'
 
 function App() {
   return (
     <>
-    <Navbar />
+    <Header />
     <div className="h-screen bg-indigo-500 grid place-items-center">App</div>
     <Carousel />
     <Footer />
-    
+    <Footer2 />
   </>
   )
 }
