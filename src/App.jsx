@@ -1,12 +1,16 @@
 import './App.css'
-import Carousel from "./components/Carousel"
-import Navbar from './components/Navbar'
+
+import Hero from './components/Hero'
+import Header from './components/Header'
+import Cta from './components/Cta'
+import { Carouselw } from './components/Carouselw'
+
 function App() {
   return (
     <>
-    <Navbar/>
-    <div className="h-screen bg-indigo-500 grid place-items-center">App</div>
-    <Carousel></Carousel>
+    <Header />
+    <Hero />
+    <Carouselw />
     
   </>
   )
