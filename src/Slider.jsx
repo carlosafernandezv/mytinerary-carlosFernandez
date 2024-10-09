@@ -5,6 +5,7 @@ import { Navigation, Pagination, Autoplay } from 'swiper/modules';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css';
+import './Slider.css'; 
 
 export const Slider = ({ slides }) => {
   return (
@@ -59,8 +60,22 @@ export const Slider = ({ slides }) => {
           className='w-[90%] sm:w-[80%] mx-auto my-8 '
         >
           {slides.map((slide) => (
-            <SwiperSlide className="object-cover" key={slide.image}>
-              <img src={slide.image} alt={slide.title} />
+            <SwiperSlide key={slide.image}>
+              <div className='w-96 slider-item mb-6 relative shadow-lg rounded-xl overflow-hidden'>
+                            <div className='image-container flex justify-center items-center'>
+                                <img
+                                    src={slide.image}
+                                    alt={slide.title}
+                                    className='slider-image'
+                                    loading="lazy"                                     
+                                />
+                                <div className='overlay absolute bottom-0 left-0 w-full h-full bg-black bg-opacity-25'></div>
+                                <p className='text-overlay absolute bottom-4 left-4 text-white font-bold text-xl bg-opacity-75 bg-black p-2 rounded-lg'>
+                                    {slide.title}
+                                </p>
+                            </div>
+                        </div>
+              
             </SwiperSlide>
           ))}
 
