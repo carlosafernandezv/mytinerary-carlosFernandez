@@ -1,0 +1,74 @@
+[
+  {
+    "id": 1,
+    "title": "Explore Paris",
+    "image": "https://images.unsplash.com/photo-1502602898657-3e91760cbb34",
+    "description": "Experience the charm of the Eiffel Tower, the art at the Louvre, and the romance of the Seine River."
+  },
+  {
+    "id": 2,
+    "title": "Discover New York City",
+    "image": "https://images.pexels.com/photos/2190283/pexels-photo-2190283.jpeg",
+    "description": "Immerse yourself in the hustle and bustle of Times Square, the tranquility of Central Park, and the cultural wealth of the Metropolitan Museum of Art."
+  },
+  {
+    "id": 3,
+    "title": "Safari in Kenya",
+    "image": "https://images.pexels.com/photos/16168264/pexels-photo-16168264/free-photo-of-antelopes-and-jeep-in-maasai-mara-game-reserve-in-kenya.jpeg",
+    "description": "Witness the breathtaking wildlife in the Maasai Mara, experience the Great Migration, and soak in the rich local culture."
+  },
+  {
+    "id": 4,
+    "title": "Relax in the Maldives",
+    "image": "https://images.pexels.com/photos/1287460/pexels-photo-1287460.jpeg",
+    "description": "Unwind on the pristine beaches, explore the vibrant coral reefs, and indulge in luxurious overwater bungalows."
+  },
+  {
+    "id": 5,
+    "title": "Cultural Tour of Kyoto",
+    "image": "https://images.pexels.com/photos/3013995/pexels-photo-3013995.jpeg",
+    "description": "Visit ancient temples, stroll through bamboo forests, and experience traditional tea ceremonies in Kyoto."
+  },
+  {
+    "id": 6,
+    "title": "Adventure in New Zealand",
+    "image": "https://i2.pickpik.com/photos/884/245/237/rafting-canyon-gorge-valley-preview.jpg",
+    "description": "Explore the stunning landscapes of Milford Sound, hike the trails of Tongariro National Park, and engage in adrenaline-pumping activities in Queenstown."
+  },
+  {
+    "id": 7,
+    "title": "History in Rome",
+    "image": "https://www.worldhistory.org/uploads/images/8297.jpg",
+    "description": "Discover the Colosseum, the Pantheon, and the Vatican City, immersing yourself in the rich history of the Eternal City."
+  },
+  {
+    "id": 8,
+    "title": "Beach Getaway in Bali",
+    "image": "https://c.pxhere.com/images/f2/80/f7ca0f145336a9f7bcf467b0084e-1588123.jpg!d",
+    "description": "Relax on the beautiful beaches, explore the lush rice terraces, and experience the vibrant nightlife in Bali."
+  },
+  {
+    "id": 9,
+    "title": "Explore the Great Wall of China",
+    "image": "https://images.pexels.com/photos/6294688/pexels-photo-6294688.jpeg",
+    "description": "Walk along the iconic Great Wall, visit historic Beijing, and delve into China's ancient history."
+  },
+  {
+    "id": 10,
+    "title": "Safari in South Africa",
+    "image": "https://ik.imgkit.net/3vlqs5axxjf/TW/ik-seo/uploadedImages/All_TW_Art/2015/020215/T0202GARDENROUTE_SS_HR/The-Garden-Route-South-Africa%e2%80%99s-most-scenic-and-ev.jpg",
+    "description": "Embark on a thrilling safari in Kruger National Park, explore Cape Town's vibrant culture, and visit  "
+  },
+  {
+    "id": 11,
+    "title": "Journey through Peru",
+    "image": "https://th-thumbnailer.cdn-si-edu.com/ruxfNwwIBuEV7QTgv4nFgneqoxE=/960x439/https://tf-cmsv2-journeys-media.s3.amazonaws.com/filer_public/1b/c8/1bc81cea-8496-40cf-87cd-14223a6a1f02/per_machupicchu_stairswoman_gettyrf_642318296.jpg",
+    "description": "Discover the ancient ruins of Machu Picchu, explore the Sacred Valley, and experience the cultural richness of Cusco."
+  },
+  {
+    "id": 12,
+    "title": "City Break in London",
+    "image": "https://www.theluxeinsider.com/wp-content/uploads/2023/06/london-city-break-guide_LEAD.jpg",
+    "description": "Visit iconic landmarks like the Tower of London, Buckingham Palace, and the British Museum, and enjoy the diverse culinary scene."
+  }
+]
