@@ -8,8 +8,8 @@ import { RxAvatar } from "react-icons/rx";
 
 
 const navigation = [
-  { name: 'Home', href: '#', current: true },
-  { name: 'Cities', href: '#', current: false },
+  { name: 'Home', href: '/', current: false },
+  { name: 'Cities', href: '/cities', current: false },
 
 ]
 
