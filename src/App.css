@@ -38,3 +38,42 @@
 .read-the-docs {
   color: #888;
 }
+
+
+.App {
+  text-align: center;
+}
+
+.cities{
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  align-items: center;
+}
+
+.city{
+  width: 500px;
+  display: flex;
+  background-color: lightgray;
+  border: 5px solid black;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.city .left{
+  width: 30%;
+  background-size: cover;
+  background-position: center center;
+  padding: 30px;
+  border-radius: 10px 0 0 10px;
+}
+
+.city .right{
+  width: 70%;
+  text-align: left;
+  padding: 0 20px;
+}
+
+.city img{
+  width: 100%;
+}

@@ -1,9 +1,33 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useQuery } from "react-query";
+import { useLocation } from "react-router-dom";
 
-export default function Cards() {
+
+
+const Cards = () => {
+
+  const getCities = async () =>{
+    const response = await fetch('http://localhost:8080/api/cities/all')
+    return response.json();
+  }
+
+  const {data, status } = useQuery('cities', getCities);
+  if (status==='loading') {
+
+    <p>Recuperando las ciudades...</p>
+    
+  }
+  if (status==='error') {
+    <p>error </p>
+    
+  }
+
   return (
     <>
-      <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
+
+
+
+      {/* <div className="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 mt-6">
         <div className="w-full max-w-sm mx-auto rounded-md shadow-md overflow-hidden">
           <div
             className="flex items-end justify-end h-56 w-full bg-cover"
@@ -220,7 +244,9 @@ export default function Cards() {
             <span className="text-gray-500 mt-2">$125</span>
           </div>
         </div>
-      </div>
+      </div> */}
     </>
   );
 }
+
+export default Cards

@@ -1,4 +1,5 @@
 import './App.css'
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Cities from './Pages/Cities'
 import NotFound from './Pages/NotFound'
@@ -26,17 +27,7 @@ function App() {
     <>
       <RouterProvider router={router}></RouterProvider>
       
-      
-
-
-
-
-
-      
-
-
-
     </>
   )
 }
-export default App
+export default App 
