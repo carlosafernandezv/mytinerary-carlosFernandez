@@ -1,9 +1,13 @@
 import './App.css'
+
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import Cities from './Pages/Cities'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import StandardLayout from './Layouts/StandardLayout'
+import Signin from './Pages/Signin'
+import CityDetail from './components/CityDetail.jsx'
+
 
 
 const router = createBrowserRouter([
@@ -14,9 +18,11 @@ const router = createBrowserRouter([
         { path: "/", element: <Home></Home> },
         { path: "/Home", element: <Home></Home> },
         { path: "/Cities", element: <Cities></Cities> },
+        { path: "/Signin", element: <Signin></Signin> },
       ]
   },
   { path: "/*", element: <NotFound></NotFound> },
+  { path: "/city/:id", element: <CityDetail /> },
 ])
 function App() {
 
@@ -24,17 +30,7 @@ function App() {
     <>
       <RouterProvider router={router}></RouterProvider>
       
-      
-
-
-
-
-
-      
-
-
-
     </>
   )
 }
-export default App
+export default App 

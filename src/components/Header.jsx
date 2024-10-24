@@ -10,6 +10,7 @@ import { RxAvatar } from "react-icons/rx";
 const navigation = [
   { name: 'Home', href: '/', current: false },
   { name: 'Cities', href: '/cities', current: false },
+  
 
 ]
 
@@ -88,7 +89,7 @@ export default function Header() {
               >
                 
                 <MenuItem>
-                  <a href="#" className="block px-4 py-2 text-sm text-red-700 data-[focus]:bg-gray-100">
+                  <a href="/signin" className="block px-4 py-2 text-sm text-red-700 data-[focus]:bg-gray-100">
                     Sign In
                   </a>
                 </MenuItem>
