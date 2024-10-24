@@ -6,6 +6,8 @@ import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import StandardLayout from './Layouts/StandardLayout'
 import Signin from './Pages/Signin'
+import CityDetail from './components/CityDetail.jsx'
+
 
 
 const router = createBrowserRouter([
@@ -20,6 +22,7 @@ const router = createBrowserRouter([
       ]
   },
   { path: "/*", element: <NotFound></NotFound> },
+  { path: "/city/:id", element: <CityDetail /> },
 ])
 function App() {
 

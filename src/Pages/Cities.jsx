@@ -45,7 +45,7 @@ const Cities = () => {
                     </div>
                 ) : (
                     cities.map((city) => (
-                        <div key={city.id} className="flex justify-center">
+                        <div key={city._id} className="flex justify-center">
                             <CityCard city={city} />
                         </div>
                     ))

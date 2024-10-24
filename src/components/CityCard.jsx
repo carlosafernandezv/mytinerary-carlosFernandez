@@ -4,7 +4,7 @@ import { useNavigate } from 'react-router-dom';
 const CityCard = ({ city }) => {
     const navigate = useNavigate();
     const handleViewMore = () => {
-        navigate(`/cities/id=${city.id}`);
+        navigate(`/city/${city._id}`);
     };
     return (
         <div className="relative bg-white shadow-md rounded-lg overflow-hidden w-80">

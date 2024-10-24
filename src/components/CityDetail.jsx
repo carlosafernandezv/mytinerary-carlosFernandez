@@ -10,16 +10,21 @@ const CityDetail = () => {
         const fetchCityDetail = async () => {
             
             const response = await fetch(`http://localhost:8080/api/cities/id/${id}`);
+            
             const data = await response.json();
             setCity(data.response);
+            
+            
         };
 
         fetchCityDetail();
     }, [id]);
-
+    
     if (!city) return <div>Loading...</div>;
 
     return (
+        <>
+        <p>{city.cityName}</p>
         <div className="w-full relative overflow-hidden" style={{ height: 'calc(100vh - 4rem)' }}>
             <img
                 src={city.photo}
@@ -41,6 +46,7 @@ const CityDetail = () => {
                 </div>
             </div>
         </div>
+        </>
     );
 
 
