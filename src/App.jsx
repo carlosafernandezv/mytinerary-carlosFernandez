@@ -1,7 +1,7 @@
 import './App.css'
 
 import { RouterProvider, createBrowserRouter } from 'react-router-dom'
-import Cities from './Pages/Cities'
+import Cities from './Pages/Cities.jsx'
 import NotFound from './Pages/NotFound'
 import Home from './Pages/Home'
 import StandardLayout from './Layouts/StandardLayout'
@@ -18,6 +18,7 @@ const router = createBrowserRouter([
         { path: "/", element: <Home></Home> },
         { path: "/Home", element: <Home></Home> },
         { path: "/Cities", element: <Cities></Cities> },
+
         { path: "/Signin", element: <Signin></Signin> },
       ]
   },
