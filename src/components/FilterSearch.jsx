@@ -1,25 +1,26 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
 
-const FilterSearch = () => {
-  const [searchParams, setSearchParams] = useSearchParams();
-  const [query, setQuery] = useState(searchParams.get('search') || '');
+import { SET_SEARCH,FilterStateContext,FilterDispatchContext } from '../context/FilterContext';
+import { useDispatch, useSelector } from 'react-redux';
+import { setSearch } from '../store/actions/productActions';
 
-  const handleSearch = (e) => {
-    e.preventDefault();
-    // Actualiza los parámetros de búsqueda en la URL
-    setSearchParams({ search: query });
-  };
+
+const FilterSearch = () => {
+  const {search} = useSelector((state) => state.productsStore);
+  const dispatch = useDispatch();
+
+  
 
   return (
-    <form onSubmit={handleSearch}>
+    <form>
       <input
         type="text"
+        value={search}
+        onChange={(e)=>dispatch(setSearch(e.target.value))}
         placeholder="Buscar ciudad..."
-        value={query}
-        onChange={(e) => setQuery(e.target.value)}
       />
-      <button type="submit">Buscar</button>
+      {/* <button type="submit">Buscar</button> */}
     </form>
   );
 };
