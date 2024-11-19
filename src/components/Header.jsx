@@ -1,15 +1,17 @@
 import { Disclosure, DisclosureButton, DisclosurePanel, Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/react'
 import { Bars3Icon, BellIcon, XMarkIcon } from '@heroicons/react/24/outline'
 import { AiFillEnvironment, } from 'react-icons/ai';
-import logo from "../assets/environment.svg"
-import avatar from "../assets/avatar.svg"
 import { RxAvatar } from "react-icons/rx";
+import { useDispatch, useSelector } from 'react-redux';
+import { useEffect } from 'react';
+import { getCities } from "../store/actions/citiesActions"
+import {logout} from "../store/actions/authActions"
 
 
-
-const navigation = [
-  { name: 'Home', href: '/', current: false },
-  { name: 'Cities', href: '/cities', current: false },
+const routes = [
+  { to: '/', text: 'Home', requireAuth:false, unrequireAuth:false },
+  { to: '/cities', text: 'Cities', requireAuth:true, unrequireAuth:false },
+  { to: '/Signin', text: 'Login', requireAuth:false, unrequireAuth:true },
   
 
 ]
@@ -19,6 +21,13 @@ function classNames(...classes) {
 }
 
 export default function Header() {
+  const token = useSelector((state)=> state.authStore.token)
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    dispatch(getCities());
+  }, [dispatch])
+
   return (
     <Disclosure as="nav" className="bg-red-800">
       <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">

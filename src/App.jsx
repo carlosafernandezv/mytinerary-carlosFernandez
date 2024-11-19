@@ -4,15 +4,13 @@ import Home from './Pages/Home'
 import Cities from './Pages/Cities.jsx'
 import NotFound from './Pages/NotFound'
 import StandardLayout from './Layouts/StandardLayout';
-import PrivateRoute from "./Components/PrivateRoute";
+import PrivateRoute from "./components/PrivateRoute.jsx"
 import Signin from './Pages/Signin';
 import axios from "axios";
 import { useDispatch } from "react-redux"
 import { setUser } from './store/actions/authActions'
-import SignRoute from "./Components/SignRoute";
-import SingUp from '../pages/SingUp'
-
-
+import SignRoute from "./components/SignRoute.jsx"
+import SingUp from './Pages/SingUp.jsx'
 import CityDetail from './components/CityDetail.jsx'
 
 
@@ -61,7 +59,6 @@ const loginWithToken = async (token) => {
 }
 
 function App() {
-
   const dispatch = useDispatch();
   let token = localStorage.getItem("token");
   if (token) {
