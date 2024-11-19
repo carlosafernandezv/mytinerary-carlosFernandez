@@ -1,4 +1,3 @@
-import React from 'react'
 import Hero from '../components/Hero'
 import { Slider } from '../Slider'
 import slides from '../mock.json'

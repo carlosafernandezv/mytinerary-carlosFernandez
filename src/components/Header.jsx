@@ -35,12 +35,9 @@ export default function Header() {
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center  ">
             <h1 className='w-full text-3xl font-bold text-[#fff]'>MyTinerary!</h1>
-              <img
-                alt="Your Company"
-                src={logo}
-                // src="https://tailwindui.com/plus/img/logos/mark.svg?color=indigo&shade=500"
-                className="h-8 w-auto "
-              />
+            <AiFillEnvironment className='h-8 w-auto fill-white' alt="MyTinerary" />
+
+              
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
