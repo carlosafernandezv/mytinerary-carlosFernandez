@@ -22,7 +22,7 @@ const getCities = createAsyncThunk("getCities", async () => {
 
 const getCitiesByName = createAsyncThunk("getCitieByName", async (name) => {
     console.log("Entramos al get Cities By Name");
-    const response = await axios.get(`http://localhost:8080/mytinerary/cities/city?name=${name}`,
+    const response = await axios.get(`http://localhost:8080/api/cities/city?name=${name}`,
         {
             headers: {
                 'Authorization': `Bearer ${token}`
