@@ -5,14 +5,14 @@ import { RxAvatar } from "react-icons/rx";
 import { useDispatch, useSelector } from 'react-redux';
 import { useEffect } from 'react';
 import { getCities } from "../store/actions/citiesActions"
-import {logout} from "../store/actions/authActions"
-
+import { logout } from "../store/actions/authActions"
+import { NavLink } from "react-router-dom"
 
 const routes = [
-  { to: '/', text: 'Home', requireAuth:false, unrequireAuth:false },
-  { to: '/cities', text: 'Cities', requireAuth:true, unrequireAuth:false },
-  { to: '/Signin', text: 'Login', requireAuth:false, unrequireAuth:true },
-  
+  { to: '/', text: 'Home', requireAuth: false, unrequireAuth: false },
+  { to: '/cities', text: 'Cities', requireAuth: true, unrequireAuth: false },
+  { to: '/Signin', text: 'Login', requireAuth: false, unrequireAuth: true },
+
 
 ]
 
@@ -21,10 +21,10 @@ function classNames(...classes) {
 }
 
 export default function Header() {
-  const token = useSelector((state)=> state.authStore.token)
+  const token = useSelector((state) => state.authStore.token)
   const dispatch = useDispatch();
 
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getCities());
   }, [dispatch])
 
@@ -43,31 +43,39 @@ export default function Header() {
           </div>
           <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
             <div className="flex flex-shrink-0 items-center  ">
-            <h1 className='w-full text-3xl font-bold text-[#fff]'>MyTinerary!</h1>
-            <AiFillEnvironment className='h-8 w-auto fill-white' alt="MyTinerary" />
+              <h1 className='w-full text-3xl font-bold text-[#fff]'>MyTinerary!</h1>
+              <AiFillEnvironment className='h-8 w-auto fill-white' alt="MyTinerary" />
 
-              
+
             </div>
             <div className="hidden sm:ml-6 sm:block">
               <div className="flex space-x-4">
-                {navigation.map((item) => (
-                  <a
-                    key={item.name}
-                    href={item.href}
-                    aria-current={item.current ? 'page' : undefined}
-                    className={classNames(
-                      item.current ? 'bg-red-900 text-white' : 'text-red-300 hover:bg-red-700 hover:text-white ',
-                      'rounded-md px-3 py-2 text-sm font-medium',
-                    )}
-                  >
-                    {item.name}
-                  </a>
-                ))}
+                {routes.map(
+                  (route, index) =>
+                    (!route.requireAuth || token) &&
+                    (!route.requireAuth || !token) &&
+                    (
+                      <a
+                        key={index}
+                        className="font-semibold text-lg sm:text-xl text-slate-600 hover:text-emerald-950"
+                      >
+                        <NavLink
+                          to={route.to}
+                          className={({ isActive }) =>
+                            isActive ? "text-emerald-500 hover:text-emerald-700" : ""
+                          }
+                        >
+                          {route.text}
+                        </NavLink>
+
+                      </a>
+
+                    ))}
               </div>
             </div>
           </div>
           <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
-            
+
 
             {/* Profile dropdown */}
             <Menu as="div" className="relative ml-3">
@@ -75,29 +83,37 @@ export default function Header() {
                 <MenuButton className="relative flex rounded-full bg-red-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-                  
-                  <div className="text-white text-5xl"> 
-                  <RxAvatar />
-                  
+
+                  <div className="text-white text-5xl">
+                    <RxAvatar />
+
                   </div>
-                  
+
                   {/* <img
                     alt=""
                     src={avatar}
                     className="h-8 w-8 rounded-full"
                   /> */}
                 </MenuButton>
-                
+
               </div>
               <MenuItems
                 transition
                 className="absolute right-0 z-10 mt-2 w-48 origin-top-right rounded-md bg-white py-1 shadow-lg ring-1 ring-black ring-opacity-5 transition focus:outline-none data-[closed]:scale-95 data-[closed]:transform data-[closed]:opacity-0 data-[enter]:duration-100 data-[leave]:duration-75 data-[enter]:ease-out data-[leave]:ease-in"
               >
-                
+
                 <MenuItem>
                   <a href="/signin" className="block px-4 py-2 text-sm text-red-700 data-[focus]:bg-gray-100">
                     Sign In
                   </a>
+                </MenuItem>
+                <MenuItem>
+                  {token && (
+                    <button className="bg-slate-800 hover:bg-slate-500 text-white px-4 py-2 rounded"
+                      onClick={() => dispatch(logout())}>
+                      Sign Out
+                    </button>
+                  )}
                 </MenuItem>
               </MenuItems>
 
