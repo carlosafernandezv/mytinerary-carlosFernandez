@@ -10,7 +10,8 @@ const setUser = createAction("setUser", (datos)=>{
 
 const logout = createAction("logout");
 
-//const setUser = createAction("setUser")
+// Action para el login con Google
+
 
 
 const login = createAsyncThunk("login", async({email,password}) => {
@@ -19,6 +20,7 @@ const login = createAsyncThunk("login", async({email,password}) => {
         email:email,
         password:password
     }
+    
     const response = await axios.post("http://localhost:8080/api/auth/signin",credentials)
     
     console.log("Se proceso la solicitud");
@@ -29,5 +31,51 @@ const login = createAsyncThunk("login", async({email,password}) => {
     return response.data
 }) //fullfilled,pending,rejected
 
+// Acción para registrarse (Signup)
+const signup = createAsyncThunk(
+    "signup",
+    async ({ email, password, city, firstName, lastName, photo }) => {
+        console.log("Entramos al Signup");
+        const newUser = {
+            email: email,
+            password: password,
+            city: city,
+            firstName: firstName,
+            lastName: lastName,
+            photo: photo,
+        };
+        const response = await axios.post("http://localhost:8080/api/users/register", newUser);
 
-export {login,setUser,logout};
+        console.log("Se procesó la solicitud de Signup");
+        console.log("Response", response.data);
+
+        return response.data; // Se devuelve la respuesta del servidor sin guardar el token
+    }
+);
+
+// Acción para iniciar sesión con Google
+const googleLogin = createAsyncThunk(
+  "auth/googleLogin",
+  async (googleToken, thunkAPI) => {
+    try {
+      // Envía el token de Google al backend para autenticación
+      const response = await axios.post(
+        
+        "http://localhost:8080/api/auth/login/google",
+        { token: googleToken } // token recibido desde el cliente de Google
+      );
+
+      console.log("Google Login Response", response.data);
+      return response.data; // Datos del usuario autenticado y token devuelto
+    } catch (error) {
+      console.error("Error in Google Login:", error.response?.data || error.message);
+      return thunkAPI.rejectWithValue(error.response?.data || error.message);
+    }
+  }
+);
+
+
+
+
+
+export { login, setUser, logout, signup, googleLogin };

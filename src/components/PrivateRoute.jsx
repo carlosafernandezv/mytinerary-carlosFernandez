@@ -5,9 +5,12 @@ function PrivateRoute({children}) {
 
     const token = useSelector(state=>state.authStore.token);
     if(!token)
-        return <Navigate to="/sign-in" replace></Navigate>
+        return <Navigate to="/Signin" replace></Navigate>
     return children
 }
 
 
 export default PrivateRoute;
+
+
+
