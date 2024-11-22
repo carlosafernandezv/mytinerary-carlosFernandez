@@ -1,5 +1,5 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { setSearch, getProducts, createProduct } from "../actions/productActions"
+import { setSearch, getProducts } from "../actions/productActions"
 
 const initialState = {
   products: [],
@@ -29,7 +29,7 @@ export const productReducer = createReducer(initialState, (builder) => {
       state.error = true
       state.loading = false
     })
-
+/* 
     //Casos para crear Producto
     .addCase(createProduct.pending, (state) => {
       console.log("Esta pendiente creación");
@@ -39,7 +39,7 @@ export const productReducer = createReducer(initialState, (builder) => {
       console.log("Se ha creado");
       state.loading = false;
       state.products.push(action.payload);
-    })
+    }) */
 })
 
 //IMMER TOOLKIT
