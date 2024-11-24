@@ -32,6 +32,10 @@ const Signin = () => {
     dispatch(login({ email, password }))
   };
 
+  const loginWithGoogle = () => {
+    window.location.href = "http://localhost:8080/api/auth/signin/google";
+  };
+
  
   const loading = authStore.loading;
   const error = authStore.error;
@@ -115,14 +119,13 @@ const Signin = () => {
           </form>
 
           <div className="mt-4">
-            <GoogleLogin
-              clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID} // Define esto en tu .env
-              buttonText="Sign in with Google"
-              onSuccess={handleGoogleSuccess}
-              onFailure={handleGoogleFailure}
-              cookiePolicy="single_host_origin"
-              className="w-full"
-            />
+            <button
+              type="submit"
+              className="w-1/3 py-2 font-semibold text-white bg-red-500 rounded hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
+              onClick={() => loginWithGoogle()}
+            >
+              Login With Google
+            </button>
           </div>
           {/* 
           <form onSubmit={handleSubmit}>
