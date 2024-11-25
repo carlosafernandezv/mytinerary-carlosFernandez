@@ -8,15 +8,15 @@ import { Slider } from '../Slider'
 import slides from '../mock.json'
 import axios from "axios";
 
-
 const loginWithToken = async (token) => {
   try {
-    console.log("Se ejecuto Login With Token");
+    console.log("se ejecuto login with token");
 
     const response = await axios.get(
-      "http://localhost:8080/api/users/validateToken",
+      "http://localhost:8080/api/auth/signin/",
+      //"http://localhost:8080/mytinerary/users/validateToken",
       {
-        headers: {
+        header: {
           Authorization: `Bearer ${token}`,
         },
       }
@@ -26,6 +26,7 @@ const loginWithToken = async (token) => {
     console.log("error", error);
   }
 };
+
 
 
 
