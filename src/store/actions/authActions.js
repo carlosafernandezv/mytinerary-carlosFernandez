@@ -33,6 +33,7 @@ const login = createAsyncThunk("login", async({email,password}) => {
     console.log("Superamos la solicitud de Login");
 
     localStorage.setItem("token", response.data.token);
+    
     return response.data;
   } catch (error) {
     console.log("error", error);

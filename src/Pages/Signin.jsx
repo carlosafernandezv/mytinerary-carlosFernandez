@@ -1,9 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { useState } from "react";
-import { GoogleOAuthProvider, GoogleLogin } from "@react-oauth/google";
-
-import { login, googleLogin } from "../../src/store/actions/authActions";
+import { login } from "../../src/store/actions/authActions";
 
 import { AiFillEnvironment } from "react-icons/ai";
 
@@ -14,17 +12,6 @@ const Signin = () => {
   const authStore = useSelector(state => state.authStore)
   console.log("Estado del Auth", authStore);
 
-  const handleGoogleSuccess = (credentialResponse) => {
-    if (credentialResponse.credential) {
-      dispatch(googleLogin(credentialResponse.credential));
-    } else {
-      console.error("Google login failed: No credential provided.");
-    }
-  };
-
-  const handleGoogleFailure = (error) => {
-    console.error("Google login failed:", error);
-  };
 
 
   const handleSubmit = (e) => {
@@ -41,38 +28,37 @@ const Signin = () => {
   const error = authStore.error;
 
   return (
-    <GoogleOAuthProvider clientId={import.meta.env.VITE_GOOGLE_CLIENT_ID}>
-      <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
-        <div className="sm:mx-auto sm:w-full sm:max-w-sm">
-          <AiFillEnvironment className="fill-red-700 mx-auto h-14 w-auto " />
-          <h2 className="mt-1 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
-            Sign in to your account
-          </h2>
-        </div>
+    <div className="flex min-h-full flex-1 flex-col justify-center px-6 py-12 lg:px-8">
+      <div className="sm:mx-auto sm:w-full sm:max-w-sm">
+        <AiFillEnvironment className="fill-red-700 mx-auto h-14 w-auto " />
+        <h2 className="mt-1 text-center text-2xl/9 font-bold tracking-tight text-gray-900">
+          Sign in to your account
+        </h2>
+      </div>
 
-        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
-          <form onSubmit={handleSubmit} className="space-y-6">
-            <div>
-              {/* <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
+      <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-sm">
+        <form onSubmit={handleSubmit} className="space-y-6">
+          <div>
+            {/* <label htmlFor="email" className="block text-sm/6 font-medium text-gray-900">
                 Email
               </label> */}
-              <div className="mt-2">
-                <input
-                  placeholder="Email"
-                  type="email"
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  id="email"
-                  name="email"
-                  required
-                  autoComplete="email"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6"
-                />
-              </div>
+            <div className="mt-2">
+              <input
+                placeholder="Email"
+                type="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                id="email"
+                name="email"
+                required
+                autoComplete="email"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6"
+              />
             </div>
+          </div>
 
-            <div>
-              {/*
+          <div>
+            {/*
               <div className="flex">
                 <label htmlFor="password" className="block text-sm/6 font-medium text-gray-900">
                   Password
@@ -80,54 +66,58 @@ const Signin = () => {
 
               </div>
               */}
-              <div className="mt-2">
-                <input
-                  placeholder="Password"
-                  type="password"
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  id="password"
-                  name="password"
-                  required
-                  autoComplete="current-password"
-                  className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6"
-                />
-              </div>
-              <div className="text-sm text-right">
-                <a
-                  href="#"
-                  className="font-semibold text-red-600 hover:text-red-500"
-                >
-                  Forgot password?
-                </a>
-              </div>
+            <div className="mt-2">
+              <input
+                placeholder="Password"
+                type="password"
+                value={password}
+                onChange={(e) => setPassword(e.target.value)}
+                id="password"
+                name="password"
+                required
+                autoComplete="current-password"
+                className="block w-full rounded-md border-0 py-1.5 text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 placeholder:text-gray-400 focus:ring-2 focus:ring-inset focus:ring-red-600 sm:text-sm/6"
+              />
             </div>
-
-            <div>
-              <button
-                type="submit"
-                className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            <div className="text-sm text-right">
+              <a
+                href="#"
+                className="font-semibold text-red-600 hover:text-red-500"
               >
-                Sign in
-              </button>
-              {loading && (
-                <p className="text-center text-teal-400">Loading...</p>
-              )}
-              {error && <p className="text-center text-red-500">{error}</p>}
+                Forgot password?
+              </a>
             </div>
-            <div></div>
-          </form>
+          </div>
 
-          <div className="mt-4">
+          <div>
             <button
               type="submit"
-              className="w-1/3 py-2 font-semibold text-white bg-red-500 rounded hover:bg-teal-700 focus:outline-none focus:ring-2 focus:ring-teal-500"
-              onClick={() => loginWithGoogle()}
+              className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
             >
-              Login With Google
+              Sign in
             </button>
+            {loading && <p className="text-center text-teal-400">Loading...</p>}
+            {error && <p className="text-center text-red-500">{error}</p>}
           </div>
-          {/* 
+          <div></div>
+        </form>
+
+        <div className="mt-4">
+          
+          <button
+            type="submit"
+            className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+            onClick={() => loginWithGoogle()}
+          >
+            <img
+              className="h-5 mr-2"
+              src="https://raw.githubusercontent.com/Loopple/loopple-public-assets/main/motion-tailwind/img/logos/logo-google.png"
+              alt=""
+            />
+            Login with Google
+          </button>
+        </div>
+        {/* 
           <form onSubmit={handleSubmit}>
             <button
               type="submit"
@@ -143,18 +133,17 @@ const Signin = () => {
           </form>
            */}
 
-          <p className="mt-2 text-center text-sm/6 text-gray-500">
-            Don’t have an account yet?{" "}
-            <a
-              href="/SingUp"
-              className="font-semibold text-red-600 hover:text-red-500"
-            >
-              Sign up here
-            </a>
-          </p>
-        </div>
+        <p className="mt-2 text-center text-sm/6 text-gray-500">
+          Don’t have an account yet?{" "}
+          <a
+            href="/SingUp"
+            className="font-semibold text-red-600 hover:text-red-500"
+          >
+            Sign up here
+          </a>
+        </p>
       </div>
-    </GoogleOAuthProvider>
+    </div>
   );
 };
 
