@@ -32,9 +32,9 @@ function classNames(...classes) {
 export default function Nav() {
   const token = useSelector((state) => state.authStore.token);
   const dispatch = useDispatch();
+  const user = useSelector((state) => state.authStore.user); // Obtiene los datos del usuario
   
-  const photo = localStorage.getItem("photo");
-  const firtName = localStorage.getItem("firtName")
+  
 
   useEffect(() => {
     dispatch(getCities());
@@ -98,18 +98,7 @@ export default function Nav() {
                 <MenuButton className="relative flex rounded-full text-white bg-red-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-red-800">
                   <span className="absolute -inset-1.5" />
                   <span className="sr-only">Open user menu</span>
-
-                  {photo ? (
-                    <img className="h-8 w-8 rounded-full" src={photo} />
-                    
-                  ) : (
-                    <RxAvatar className="h-8 w-8 fill-white" />
-                  )}
-                  {/* <img
-                    alt=""
-                    src="https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=facearea&facepad=2&w=256&h=256&q=80"
-                    className="size-8 rounded-full"
-                  /> */}
+                  
                 </MenuButton>
               </div>
 
