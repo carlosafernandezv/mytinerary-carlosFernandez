@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import { getCities } from "../store/actions/citiesActions"
 import { logout } from "../store/actions/authActions"
 import { NavLink } from "react-router-dom"
-import Nav from "../components/Nav"
+import Navi from "./Navi.jsx"
 
 const routes = [
   { to: '/', text: 'Home', requireAuth: false, unrequireAuth: false },
@@ -29,7 +29,8 @@ export default function Header() {
 
   return (
     <>
-      <Nav></Nav>
+      
+<Navi></Navi>
 
       
     </>

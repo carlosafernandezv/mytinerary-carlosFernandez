@@ -1,6 +1,11 @@
 import { createReducer } from "@reduxjs/toolkit";
-import { login, setUser, logout, signup, googleLogin } from "../actions/authActions";
-
+import {
+  login,
+  setUser,
+  logout,
+  signup,
+  googleLogin,
+} from "../actions/authActions";
 
 const initialState = {
   loading: false,
@@ -68,11 +73,13 @@ const authReducer = createReducer(initialState, (builder) => {
   builder.addCase(logout, (state) => {
     console.log("Cierre de sesión");
     localStorage.removeItem("token");
+    localStorage.removeItem("photo");
+    localStorage.removeItem("firstName");
+    localStorage.removeItem("lastName");
+
     state.user = null;
     state.token = null;
   });
-    
-
 
   builder
     .addCase(googleLogin.pending, (state) => {
@@ -93,7 +100,6 @@ const authReducer = createReducer(initialState, (builder) => {
       state.user = null;
       state.token = null;
     });
-
 });
 
 export default authReducer;

@@ -15,20 +15,31 @@ const logout = createAction("logout");
 
 
 const login = createAsyncThunk("login", async({email,password}) => {
+  try {
+    
     console.log("Entramos al Login");
     const credentials = {
-        email:email,
-        password:password
-    }
-    
-    const response = await axios.post("http://localhost:8080/api/auth/signin",credentials)
-    
+      email: email,
+      password: password,
+    };
+
+    const response = await axios.post(
+      "http://localhost:8080/api/auth/signin",
+      credentials
+    );
+
     console.log("Se proceso la solicitud");
-    console.log("Response",response.data);
+    console.log("Response", response.data);
     console.log("Superamos la solicitud de Login");
+
+    localStorage.setItem("token", response.data.token);
     
-    localStorage.setItem("token",response.data.token)
-    return response.data
+    return response.data;
+  } catch (error) {
+    console.log("error", error);
+        
+  }  
+  
 }) //fullfilled,pending,rejected
 
 // Acción para registrarse (Signup)

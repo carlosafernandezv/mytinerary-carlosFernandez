@@ -4,6 +4,10 @@ import { useState } from "react";
 
 import { signup } from "../../src/store/actions/authActions";
 
+const loginWithGoogle = () => {
+  window.location.href = "http://localhost:8080/api/auth/signin/google";
+};
+
 function SingUp() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -12,8 +16,7 @@ function SingUp() {
   const [photo, setPhoto] = useState("");
   const [city, setCity] = useState("");
 
-  console.log(city,email,password,firstName,lastName, photo);
-  
+  console.log(city, email, password, firstName, lastName, photo);
 
   const dispatch = useDispatch();
   const authStore = useSelector((state) => state.authStore);
@@ -253,6 +256,7 @@ function SingUp() {
                   <button
                     type="submit"
                     className="flex w-full justify-center rounded-md bg-red-600 px-3 py-1.5 text-sm/6 font-semibold text-white shadow-sm hover:bg-red-500 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-red-600"
+                    onClick={() => loginWithGoogle()}
                   >
                     <img
                       className="h-5 mr-2"
